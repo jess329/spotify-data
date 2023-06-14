@@ -5,6 +5,7 @@ import { spotifyApi } from './spotify';
 
 const Callback = () => {
   const location = useLocation();
+  if(window.location.search) console.log(window.location.search);
 
   useEffect(() => {
     const hash = parseHash(location.hash);
@@ -12,8 +13,9 @@ const Callback = () => {
 
     if (access_token) {
       // Set the access token and expiration time in the Spotify API wrapper
-      spotifyApi.setAccessToken(access_token);
-      spotifyApi.setAccessTokenExpirationTime(expires_in);
+      console.log(access_token);
+      // spotifyApi.setAccessToken(access_token);
+      // spotifyApi.setAccessTokenExpirationTime(expires_in);
 
       // Redirect the user to the desired page in your app
       window.location.href = '/dashboard';
