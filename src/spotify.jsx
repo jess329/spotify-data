@@ -5,7 +5,6 @@ export const spotifyApi = new SpotifyWebApi({
   clientId: CLIENT_ID,
 });
 // spotifyApi.setAccessToken
-console.log(spotifyApi);
 
 // export const authorizeSpotify = () => {
 //     const scopes = ['user-read-private', 'user-read-email'];
