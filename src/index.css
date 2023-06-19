@@ -1,0 +1,10 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin: 1rem;
+    padding: 3px 10px;
+}

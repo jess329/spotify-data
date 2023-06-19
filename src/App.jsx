@@ -4,21 +4,22 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GeneralMusicStats from './GeneralMusicStats'
 import { CLIENT_ID, REDIRECT_URI, SCOPES } from './config';
 import axios from 'axios';
-import { getUsersTopTracks, getUsersPlaylists } from './GetUserData';
+import { getUsersTopTracks, getUsersPlaylists, fetchLatestPlayedTracks } from './GetUserData';
 
 
 function App() {
   const [token, setToken] = useState("")
   const [userData, setUserData] = useState({})
   const [userTopTracks, setUserTopTracks] = useState({})
+  const [playlists, setPlaylists] = useState({})
 
   useEffect(() => {
     const hash = window.location.hash
     let token = window.localStorage.getItem("token")
 
     if(token) {
-      setToken(token)
       window.location.hash = ""
+      console.log(token);
     }
 
     if(!token && hash) {
@@ -27,10 +28,11 @@ function App() {
         .find((elem) => elem.startsWith("access_token")).split(("="))[1]
 
       console.log(token);
-      setToken(token)
       window.localStorage.setItem("token", token)
       window.location.hash = ""
     }
+    setToken(token)
+    if(userTopTracks.total) console.log(userTopTracks);
   }, [])
 
   const fetchUserData = async () => {
@@ -51,6 +53,12 @@ function App() {
     }
   }
 
+  const logout = () => {
+    window.localStorage.removeItem("token")
+  }
+
+  
+
   // const getUsersTopTracks = async () => {
   //   try {
   //     if(token) {
@@ -70,17 +78,18 @@ function App() {
 
 
   return (
-    <div>
+    <body>
       <h1>Spotify Data</h1>
       {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}&response_type=token`}>
-        <button>Authorize Spotify</button>
-      </a> : null}
+        <button className='btn'>Authorize Spotify</button>
+      </a> : <button className='btn' onClick={logout}>Logout</button> } 
       
-      <button onClick={fetchUserData}>Get User Data</button>
-      <button onClick={() => getUsersTopTracks(token)}>Get Users Top Tracks</button>
-      <button onClick={() => getUsersPlaylists(token)}>Get Users Playlists</button>
+      <button className='btn' onClick={fetchUserData}>Get User Data</button>
+      <button className='btn' onClick={() => getUsersTopTracks(token, setUserTopTracks)}>Get Users Top Tracks</button>
+      <button className='btn' onClick={() => getUsersPlaylists(token, setPlaylists)}>Get Users Playlists</button>
+      <button className='btn' onClick={() => fetchLatestPlayedTracks(token)}>Get Recently Played</button>
       
-    </div>
+    </body>
   )
 }
 
