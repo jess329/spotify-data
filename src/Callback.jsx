@@ -7,22 +7,13 @@ const Callback = () => {
   const location = useLocation();
   if(window.location.search) console.log(window.location.search);
 
-  useEffect(() => {
-    const hash = parseHash(location.hash);
-    const { access_token, expires_in } = hash;
+  
 
-    if (access_token) {
-      // Set the access token and expiration time in the Spotify API wrapper
-      console.log(access_token);
-      // spotifyApi.setAccessToken(access_token);
-      // spotifyApi.setAccessTokenExpirationTime(expires_in);
-
-      // Redirect the user to the desired page in your app
-      window.location.href = '/dashboard';
-    }
-  }, [location]);
-
-  return null;
+  return (
+    <div>
+      <h1>Callback</h1>
+    </div>
+  );
 };
 
 export default Callback;
