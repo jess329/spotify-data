@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GeneralMusicStats from './GeneralMusicStats'
-import { CLIENT_ID, REDIRECT_URI, SCOPES } from './config';
+import { CLIENT_ID, REDIRECT_URI, RED_URI, SCOPES } from './config';
 import axios from 'axios';
 import { getUsersTopTracks, getUsersPlaylists, fetchLatestPlayedTracks } from './GetUserData';
 
