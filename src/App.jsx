@@ -57,25 +57,6 @@ function App() {
     window.localStorage.removeItem("token")
   }
 
-  
-
-  // const getUsersTopTracks = async () => {
-  //   try {
-  //     if(token) {
-  //       const res = await axios.get('https://api.spotify.com/v1/me/top/tracks', {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`
-  //         }
-  //       });
-        
-  //     // Handle the response data here
-  //     console.log(res.data);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
 
   return (
     <body>
