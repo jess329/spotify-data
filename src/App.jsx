@@ -60,7 +60,7 @@ function App() {
 
   return (
     <body>
-      <h1>Spotify Data</h1>
+      <h1>React Spotify App</h1>
       {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${RED_URI}&scope=${SCOPES}&response_type=token`}>
         <button className='btn'>Authorize Spotify</button>
       </a> : <button className='btn' onClick={logout}>Logout</button> } 
@@ -70,6 +70,17 @@ function App() {
       <button className='btn' onClick={() => getUsersPlaylists(token, setPlaylists)}>Get Users Playlists</button>
       <button className='btn' onClick={() => fetchLatestPlayedTracks(token)}>Get Recently Played</button>
       
+      {userData.country ? 
+      <div className="user">
+        <div className="user-data">
+          <h3>Name: {userData.display_name} </h3>
+          <a href={userData.external_urls.spotify}>View Profile</a>
+          <h3>Follower: {userData.followers.total} </h3>
+        </div>
+      </div>
+      : null}
+      
+
     </body>
   )
 }
