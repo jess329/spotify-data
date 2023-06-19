@@ -61,7 +61,7 @@ function App() {
   return (
     <body>
       <h1>Spotify Data</h1>
-      {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}&response_type=token`}>
+      {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${RED_URI}&scope=${SCOPES}&response_type=token`}>
         <button className='btn'>Authorize Spotify</button>
       </a> : <button className='btn' onClick={logout}>Logout</button> } 
       
