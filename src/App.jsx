@@ -80,7 +80,7 @@ function App() {
       </header>
 
       <main>
-        <button className='btn' onClick={fetchUserData}>Get User Data</button>
+        <button className='btn' onClick={() => fetchUserData(token, setUserData)}>Get User Data</button>
           {userData.country ? 
           <div className="user">
             <div className="user-data">
@@ -103,7 +103,12 @@ function App() {
               {userTopTracks.map((track) => {
                 return (
                   <div className="track">
-                    <h4>{track.name}</h4>
+                    <div className="song-info">
+                      <h4>Song: {track.name}</h4>
+                      <h4>Artist: {track.artists.name} </h4>
+                    </div>
+                    <img src={track.album.images[2].url} alt="" />
+
                   </div>
                 )
               })}  

@@ -1,5 +1,23 @@
 import axios from "axios";
 
+const fetchUserData = async (token, setUserData) => {
+  try {
+    if(token) {
+      const res = await axios.get('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      console.log(res.data);
+      setUserData(res.data)
+    }
+  
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const getUsersTopTracks = async (token, setTracks) => {
     try {
         const res = await axios.get('https://api.spotify.com/v1/me/top/tracks', {
