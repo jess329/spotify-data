@@ -67,7 +67,7 @@
       transition: .5s all ease-in-out;
     }
     .sun:hover{
-      animation: 1s sun_rotate 1s 1;
+      animation: 1s sun_rotate infinite;
     }
     .moon:hover{
       transform: scale(1.1);
@@ -108,11 +108,16 @@ header h1 {
 }
 
 
+.btn-container {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
 .btn {
     margin: 1rem;
-    padding: 3px 10px;
+    padding: 3px 20px;
     font-family: "Geologica";
-    /* max-width: 200px; */
+    width: fit-content;
 }
 
 /* Main */
@@ -134,11 +139,13 @@ main {
     align-items: center;
     gap: 2rem;
 }
+.user-data h2 {
+    margin-top: 0; 
+}
 .user-data h3 {
     margin: 0;
-    display: grid;
-    gap: 1rem;
 }
+
 .profile-img {
     width: 100px;
     height: 100px;
@@ -148,8 +155,43 @@ main {
 /* User Tracks */
 .top-tracks {
     padding: 1rem;
-    border: 2px solid black;
 }
 .top-tracks h2 {
+    margin-top: 0;
+}
+.top-tracks h4 {
     margin: 0;
 }
+.tracks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.track {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid black;
+}
+
+@media screen and (min-width: 600px) {
+    
+    .tracks {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .tracks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* @media screen and (min-width: 1350px) {
+    
+    .tracks {
+        grid-template-columns: repeat(4, 1fr);
+    }
+} */
