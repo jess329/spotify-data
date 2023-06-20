@@ -67,7 +67,7 @@
       transition: .5s all ease-in-out;
     }
     .sun:hover{
-      animation: 1s sun_rotate 1s 2 ;
+      animation: 1s sun_rotate 1s 1;
     }
     .moon:hover{
       transform: scale(1.1);
