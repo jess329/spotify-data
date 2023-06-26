@@ -44,7 +44,8 @@ export const getUsersPlaylists = async (token, setPlaylists) => {
           
         // Handle the response data here
         // console.log(res.data);
-        setPlaylists(res.data)
+        setPlaylists(res.data.items)
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
