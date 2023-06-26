@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchUserData = async (token, setUserData) => {
+export const fetchUserData = async (token, setUserData) => {
   try {
     if(token) {
       const res = await axios.get('https://api.spotify.com/v1/me', {
