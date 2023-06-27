@@ -31,7 +31,13 @@ function Navbar(props) {
             </div>
         </div>
         <div className="side-bar">
-
+            <div className="sidemenu">
+                <div className='link' onClick={() => changeBackground(4)}><p>Profile</p></div>
+                <div className='link' onClick={() => changeBackground(5)}><p>Most played</p></div>
+                <div className='link' onClick={() => changeBackground(6)}><p>Recently played</p></div>
+                <div className='link' onClick={() => changeBackground(7)}><p>Playlists</p></div>
+                <div className='link' onClick={() => changeBackground(8)}><p>Podcasts/Audiobooks</p></div>
+            </div>
         </div>
     </div>
   )

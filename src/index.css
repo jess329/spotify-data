@@ -97,24 +97,22 @@ html, body {
     
 }
 
-.navbar {
+
+.bottom-bar {
     position: fixed;
     bottom: 0;
     background-color: black;
     color: white;
     min-width: 100vw;
-
-}
-.bottom-bar {
-    padding: 0 20px;
 }
 .bottom-bar .menu {
     display: flex;
     justify-content: space-between;
-    height: 100%;
-    width: 100%;
+    padding: 0 20px;
+    /* height: 100%;
+    width: 100%; */
 }
-.menu .link {
+.menu > * {
     height: 100%;
     padding: 20px 10px;
     width: 60px;
@@ -123,6 +121,26 @@ html, body {
 }
 li {
     list-style: none;
+}
+
+.side-bar {
+    position: fixed;
+    min-height: 100vh;
+    background-color: #000;
+    width: fit-content;
+    display: none;
+}
+.side-bar .sidemenu {
+    margin-top: 10rem;
+    width: fit-content;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.sidemenu > * {
+    padding: 0 20px;
+    /* background-color: #333; */
 }
 
 /* Header */
@@ -140,7 +158,7 @@ header h1 {
     display: grid;
     place-items: center;
 }
-.btn {
+button {
     margin: 1rem;
     padding: 3px 20px;
     font-family: "Geologica";
@@ -201,11 +219,30 @@ main {
     padding: 0.5rem;
     border: 2px solid black;
 }
+.songs-section .btn-container {
+    grid-template-columns: 1fr 1fr;
+    /* padding: 1rem; */
+}
+.songs-section .btn {
+    width: 100%;
+    margin: 0 1rem;
+
+}
+
 
 @media screen and (min-width: 600px) {
     
     .tracks {
         grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 768px) {
+    
+    .side-bar {
+        display: grid;
+    }
+    .bottom-bar {
+        display: none;
     }
 }
 

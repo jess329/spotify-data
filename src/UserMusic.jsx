@@ -14,9 +14,12 @@ function UserMusic(props) {
     <div className='music'>
         <h2>Your Music</h2>
         <div className="songs-section">
+              <div className="btn-container">
+                <button className='btn switch'>Most played</button>  
+                <button className='btn switch'>Recently played</button>
+              </div>
           {topTracks[0] ? 
             <div className="top-tracks">
-              <h2>Your Top Tracks</h2>
               <div className="tracks">
                 {topTracks.map((track) => {
                   return (

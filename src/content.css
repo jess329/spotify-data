@@ -1,0 +1,25 @@
+
+
+.playlists {
+    width: 70vw;
+    display: grid;
+    /* grid-template-columns: repeat( auto-fill, minmax(300px, 1fr) ); */
+    gap: 1rem;
+}
+.playlist {
+    display: flex;
+    justify-content: space-between;
+}
+.imgholder {
+    width: 100px;
+}
+.playlist-img {
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .playlists {
+        grid-template-columns: 1fr 1fr;
+        max-width: 1000px;
+    }
+}
