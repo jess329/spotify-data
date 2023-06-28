@@ -10,6 +10,12 @@
     display: flex;
     justify-content: space-between;
 }
+.playlist a {
+    font-size: 20px;
+}
+.playlist a:visited {
+    color: blue;
+}
 .imgholder {
     width: 100px;
 }

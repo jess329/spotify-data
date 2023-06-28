@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getUsersPlaylists } from './GetUserData'
+import { getUsersPlaylists } from '../GetUserData'
 import "./content.css"
 
 
@@ -10,7 +10,7 @@ function UserPlaylists(props) {
     useEffect(() => {
         getUsersPlaylists(token, setPlaylists)
     }, [])
-    if(playlists) console.log(playlists);
+    // if(playlists) console.log(playlists);
 
   return (
     <div>
@@ -21,8 +21,10 @@ function UserPlaylists(props) {
                 return (
                 <div className="playlist">
                     <div className="playlist-info">
-                        <h3>{playlist.name}</h3>
-
+                        <h2>{playlist.name}</h2>
+                        <p>{playlist.description}</p>
+                        {/* <p>Follower: {playlist.} </p> */}
+                        <a href={playlist.external_urls.spotify} target='_blank'>Link</a>
                     </div>
                     <div className="imgholder">
                         <img src={playlist.images[0].url} alt="Playlist Image" className='playlist-img' />

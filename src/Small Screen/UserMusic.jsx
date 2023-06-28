@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { getUsersTopTracks } from './GetUserData'
+import { getUsersTopTracks } from '../GetUserData'
 
 function UserMusic(props) {
     const { token } = props

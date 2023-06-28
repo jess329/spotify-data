@@ -5,12 +5,12 @@ import { CLIENT_ID, REDIRECT_URI, RED_URI, SCOPES } from './config';
 import axios from 'axios';
 import { getUsersTopTracks, getUsersPlaylists, fetchLatestPlayedTracks } from './GetUserData';
 import Navbar from './Navbar';
-import Profile from './Profile';
-import UserMusic from './UserMusic';
-import UserPlaylists from './UserPlaylists';
-import NonMusic from './NonMusic';
-import MostPlayed from './MostPlayed';
-import RecentlyPlayed from './RecentlyPlayed';
+import Profile from './Small Screen/Profile';
+import UserMusic from './Small Screen/UserMusic';
+import UserPlaylists from './Small Screen/UserPlaylists';
+import NonMusic from './Small Screen/NonMusic';
+import MostPlayed from './Big Screen/MostPlayed';
+import RecentlyPlayed from './Big Screen/RecentlyPlayed';
 
 
 
@@ -63,7 +63,6 @@ function App() {
       <Navbar setContent={setContent} />
 
       <header>
-        <h1>React Spotify App</h1>
         <div className="btn-container">
           {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}&response_type=token`}>
             <button className='btn'>Authorize Spotify</button>

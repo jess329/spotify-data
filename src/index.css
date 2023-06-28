@@ -1,123 +1,49 @@
 :root {
-    --green-90-light: #ecf8f2;
-    --green-80-light: #daf1e4;
-    --green-70-light: #c7ead7;
-    --green-60-light: #b5e3c9;
-    --green-50-light: #a2ddbc;
-    --green-40-light: #8fd6ae;
-    --green-30-light: #7dcfa1;
-    --green-20-light: #6ac893;
-    --green-10-light: #58c186;
-    --green-0: #45ba78;
-    --green-10-dark: #3ea76c;
-    --green-20-dark: #379560;
-    --green-30-dark: #308254;
-    --green-40-dark: #297048;
-    --green-50-dark: #235d3c;
-    --green-60-dark: #1c4a30;
-    --green-70-dark: #153824;
-    --green-80-dark: #0e2518;
-    --green-90-dark: #07130c;
-
-    /* lightmode */
-    --primary-color: #1B1E24;
-    --secondary-color: #1B1E24;
-    --font-color: #1B1E24;
-    --bg-color: #a2ddbc;
-    --heading-color: #1B1E24;
+    --main-green: #1DB954;
+    --bg-clr: rgb(24, 24, 24);
+    --bg-clr2: #333;
 }
-
-/* Darkmode */
-
-[data-theme="dark"] {
-    --primary-color: #fff;
-    --secondary-color: #fff;
-    --font-color: #fff;
-    --bg-color: #1B1E24;
-    --heading-color: #fff;
-}
-
-.container{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 3vh;
-    .content h1{
-      color: var(--primary-color);
-      font-family: "Dosis",sans-serif;
-      font-size: 5rem;
-    }
-    .content p{
-      color: var(--primary-color);
-      font-family: "Dosis",sans-serif;
-      font-size: 2rem;
-    }
-  }
-  
-  .header{
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    .moon, .sun{
-      width: 34px;
-      cursor: pointer;
-      transition: .5s all ease-in-out;
-    }
-    .sun:hover{
-      animation: 1s sun_rotate infinite;
-    }
-    .moon:hover{
-      transform: scale(1.1);
-    }
-    .hide{
-      display: none;
-    }
-  }
-  
-  
-   /* Animations */
-  
-  @keyframes sun_rotate{
-    0%{
-      transform: rotate(0deg);
-    }
-    100%{
-      transform: rotate(360deg);
-    }
-  }
 
 html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Geologica";
-    background-color: var(--bg-color);
-    
+    background-color: var(--bg-clr);
+    color: white;
 }
 
 
 .bottom-bar {
     position: fixed;
     bottom: 0;
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #FFF;
     min-width: 100vw;
 }
 .bottom-bar .menu {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    position: relative;
     /* height: 100%;
     width: 100%; */
 }
 .menu > * {
-    height: 100%;
-    padding: 20px 10px;
+    height: 50px;
+    /* padding: 20px 10px; */
     width: 60px;
     display: grid;
     place-content: center;
+    cursor: pointer;
+}
+.current-bottom {
+    position: absolute;
+    width: inherit;
+    height: 3px;
+    top: 0;
+    background-color: var(--main-green);
+    opacity: 0;
 }
 li {
     list-style: none;
@@ -140,7 +66,20 @@ li {
 }
 .sidemenu > * {
     padding: 0 20px;
+    cursor: pointer;
     /* background-color: #333; */
+}
+.iconholder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.spotify-icon {
+    font-size: 50px;
+    position: relative;
+    top: 2rem;
+    color: var(--main-green);
 }
 
 /* Header */
@@ -164,11 +103,16 @@ button {
     font-family: "Geologica";
     width: fit-content;
 }
+a:visited {
+    color: blue;
+}
 
 /* Main */
 main {
     display: grid;
     place-content: center;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
 }
 
 /* User Data */
@@ -178,7 +122,6 @@ main {
     padding: 1rem 2rem;
     left: 50%;
     transform: translateX(-50%);
-    border: 2px solid black;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
@@ -244,6 +187,15 @@ main {
     .bottom-bar {
         display: none;
     }
+
+    main, header {
+        width: calc(100vw - 208px);
+        margin-left: 208px;
+    }
+    /* .main-content > * {
+        width: 100%;
+    } */
+
 }
 
 @media screen and (min-width: 1024px) {

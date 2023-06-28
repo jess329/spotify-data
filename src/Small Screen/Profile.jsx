@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { fetchUserData } from './GetUserData'
+import { fetchUserData } from '../GetUserData'
 
 function Profile(props) {
     const { token } = props
