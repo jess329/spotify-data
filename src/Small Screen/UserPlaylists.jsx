@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { getUsersPlaylists } from '../GetUserData'
+import { getUsersOwnPlaylists, getUsersMostHeardPlaylists } from '../GetUserData'
 import "./content.css"
 
 
 function UserPlaylists(props) {
     const { token } = props
-    const [playlists, setPlaylists] = useState({})
+    const [ownPlaylists, setOwnPlaylists] = useState({})
+    const [mostHeardPlaylists, setMostHeardPlaylists] = useState({})
 
     useEffect(() => {
-        getUsersPlaylists(token, setPlaylists)
+        getUsersOwnPlaylists(token, setOwnPlaylists)
     }, [])
     // if(playlists) console.log(playlists);
 
@@ -16,17 +17,18 @@ function UserPlaylists(props) {
     <div>
         <h2>Your Playlists</h2>
         <div className="playlists">
-            {playlists[0] ?
-            playlists.map((playlist) => {
+            {ownPlaylists[0] ?
+            ownPlaylists.map((playlist) => {
                 return (
                 <div className="playlist">
                     <div className="playlist-info">
                         <h2>{playlist.name}</h2>
-                        <p>{playlist.description}</p>
+                        <p><i>{playlist.description}</i></p>
+                        <h3>Tracks: {playlist.tracks.total} </h3>
                         {/* <p>Follower: {playlist.} </p> */}
                         <a href={playlist.external_urls.spotify} target='_blank'>Link</a>
                     </div>
-                    <div className="imgholder">
+                    <div className="imgholder-playlist">
                         <img src={playlist.images[0].url} alt="Playlist Image" className='playlist-img' />
                     </div>
                 </div>

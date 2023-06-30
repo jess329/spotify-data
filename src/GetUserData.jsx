@@ -20,9 +20,12 @@ export const fetchUserData = async (token, setUserData) => {
 
 export const getUsersTopTracks = async (token, setTracks, time_range) => {
     try {
-        const res = await axios.get(`https://api.spotify.com/v1/me/top/tracks?limit=20&time_range=${time_range}`, {
+        const res = await axios.get(`https://api.spotify.com/v1/me/top/tracks`, {
           headers: {
             Authorization: `Bearer ${token}`
+          }, params: {
+            time_range: time_range,
+            limit: 20 // Specify the desired limit of tracks
           }
         });
         
@@ -34,7 +37,7 @@ export const getUsersTopTracks = async (token, setTracks, time_range) => {
     }
   }
 
-export const getUsersPlaylists = async (token, setPlaylists) => {
+export const getUsersOwnPlaylists = async (token, setPlaylists) => {
     try {
           const res = await axios.get('https://api.spotify.com/v1/me/playlists', {
             headers: {
@@ -49,6 +52,22 @@ export const getUsersPlaylists = async (token, setPlaylists) => {
       } catch (err) {
         console.log(err);
       }
+}
+
+export const getUsersMostHeardPlaylists = async (token, setMostHeardPlaylists) => {
+  const response = await axios.get(
+    "https://api.spotify.com/v1/me/top/tracks",{
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        params: {
+            type: "playlists",
+            time_range: "medium_term",
+            limit: 50,
+        },
+    })
+  const data = response.data
+  console.log(data);
 }
 
 export const fetchLatestPlayedTracks = async (token) => {

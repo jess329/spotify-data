@@ -3,14 +3,12 @@ import { useEffect, useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CLIENT_ID, REDIRECT_URI, RED_URI, SCOPES } from './config';
 import axios from 'axios';
-import { getUsersTopTracks, getUsersPlaylists, fetchLatestPlayedTracks } from './GetUserData';
 import Navbar from './Navbar';
 import Profile from './Small Screen/Profile';
-import UserMusic from './Small Screen/UserMusic';
 import UserPlaylists from './Small Screen/UserPlaylists';
 import NonMusic from './Small Screen/NonMusic';
-import MostPlayed from './Big Screen/MostPlayed';
-import RecentlyPlayed from './Big Screen/RecentlyPlayed';
+import Songs from './Small Screen/Songs';
+import Artists from './Small Screen/Artists';
 
 
 
@@ -50,15 +48,16 @@ function App() {
   }
   
   const contentArr = [ <Profile token={token}  />, 
-  <UserMusic token={token} />, 
+  <Songs token={token} />,
+  <Artists token={token} />, 
   <UserPlaylists token={token} />, 
   <NonMusic token={token} /> ]
 
-  const contentArrSide = [ <Profile token={token} />,
-  <MostPlayed token={token} />,
-  <RecentlyPlayed token={token} />,
-  <UserPlaylists token={token} />, 
-  <NonMusic token={token} /> ]
+  // const contentArrSide = [ <Profile token={token} />,
+  // <Songs token={token} />,
+  // <Artists token={token} />,
+  // <UserPlaylists token={token} />, 
+  // <NonMusic token={token} /> ]
 
   return (
     <body>
@@ -78,7 +77,7 @@ function App() {
 
         <div className="main-content">
           {content.navbar == "bottom" ? contentArr[content.index]
-          : contentArrSide[content.index]}
+          : contentArr[content.index]}
         </div>
         
         

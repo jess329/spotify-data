@@ -121,8 +121,11 @@ button {
     font-family: "Geologica";
     width: fit-content;
 }
+a {
+    color: var(--main-green);
+}
 a:visited {
-    color: blue;
+    color: var(--main-green);
 }
 
 /* Main */
@@ -145,13 +148,24 @@ main {
     place-items: center;
     gap: 2rem;
 }
+.user-data {
+    display: grid;
+    place-items: center;
+}
 .user-data h2 {
     margin: 0;
     margin-bottom: 2rem; 
     color: var(--main-green);
 }
+
+.user-data-row2 {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
 .user-data h3 {
     margin: 0;
+    text-transform: capitalize;
 }
 
 .imgholder {
@@ -162,38 +176,6 @@ main {
     width: 200px;
     /* height: 200px; */
     border-radius: 50%;
-}
-
-/* User Tracks */
-.top-tracks {
-    padding: 1rem;
-}
-.top-tracks h2 {
-    margin-top: 0;
-}
-.top-tracks h4 {
-    margin: 0;
-}
-.tracks {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-.track {
-    display: inline-flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    border: 2px solid black;
-}
-.songs-section .btn-container {
-    grid-template-columns: 1fr 1fr;
-    /* padding: 1rem; */
-}
-.songs-section .btn {
-    width: 100%;
-    margin: 0 1rem;
-
 }
 
 

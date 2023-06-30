@@ -19,7 +19,11 @@ function Profile(props) {
               </div>
               <div className="user-data">
                 <h2 className='name'>{userData.display_name} </h2>
-                <h3>Followers: {userData.followers.total} </h3>
+                <div className="user-data-row2">
+                  <h3>{userData.country}</h3>
+                  <h3>Followers: {userData.followers.total} </h3>
+                  <h3 className='user-product'>{userData.product} </h3>
+                </div>
                 <a href={userData.external_urls.spotify} target='_blank'>View Profile</a>
               </div>
               

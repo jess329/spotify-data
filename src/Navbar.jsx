@@ -3,6 +3,8 @@ import { BsMusicNoteBeamed, BsSpotify } from "react-icons/bs"
 import {RiPlayListFill} from "react-icons/ri"
 import {CgProfile} from "react-icons/cg"
 import {AiFillAudio} from "react-icons/ai"
+import {GiMicrophone} from "react-icons/gi"
+import {MdAudiotrack} from "react-icons/md"
 
 
 function Navbar({setContent}) {
@@ -69,12 +71,15 @@ function Navbar({setContent}) {
                     <div className='current-bottom'></div> <CgProfile/>
                 </div>
                 <div className="link bottom" onClick={() => changeBackground(1, "bottom")}>
-                    <div className='current-bottom'></div><BsMusicNoteBeamed/>  
+                    <div className='current-bottom'></div><MdAudiotrack/>  
                 </div>
                 <div className="link bottom" onClick={() => changeBackground(2, "bottom")}>
-                    <div className='current-bottom'></div><RiPlayListFill/>  
+                    <div className='current-bottom'></div><GiMicrophone/>  
                 </div>
                 <div className="link bottom" onClick={() => changeBackground(3, "bottom")}>
+                    <div className='current-bottom'></div><RiPlayListFill/>  
+                </div>
+                <div className="link bottom" onClick={() => changeBackground(4, "bottom")}>
                     <AiFillAudio/><div className='current-bottom'></div>
                 </div>
             </div>
@@ -88,10 +93,10 @@ function Navbar({setContent}) {
                     <p>Profile</p><div className='current-side'></div>
                 </div>
                 <div className='link side' onClick={() => changeBackground(1, "side")}>
-                    <p>Most played</p><div className='current-side'></div>
+                    <p>Songs</p><div className='current-side'></div>
                 </div>
                 <div className='link side' onClick={() => changeBackground(2, "side")}>
-                    <p>Recently played</p><div className='current-side'></div>
+                    <p>Artists</p><div className='current-side'></div>
                 </div>
                 <div className='link side' onClick={() => changeBackground(3, "side")}>
                     <p>Playlists</p><div className='current-side'></div>
