@@ -7,7 +7,7 @@ function UserMusic(props) {
     const [topTracks, setTopTracks] = useState({})
 
     useEffect(() => {
-        getUsersTopTracks(token, setTopTracks)
+        getUsersTopTracks(token, setTopTracks, "medium_term")
     }, [])
 
   return (

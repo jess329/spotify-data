@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function NonMusic(props) {
-    const { token } = props
+  const { token } = props
+  const [nonMusicData, setNonMusicData] = useState({})
 
   return (
     <div>

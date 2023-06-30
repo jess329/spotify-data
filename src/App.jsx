@@ -17,7 +17,10 @@ import RecentlyPlayed from './Big Screen/RecentlyPlayed';
 
 function App() {
   const [token, setToken] = useState("")
-  const [content, setContent] = useState(0)
+  const [content, setContent] = useState({
+    index: 0,
+    navbar: "bottom"
+  })
   
   useEffect(() => {
     const hash = window.location.hash
@@ -74,8 +77,8 @@ function App() {
       <main>
 
         <div className="main-content">
-          {content <= 3 ? contentArr[content]
-          : contentArrSide[content - 4]}
+          {content.navbar == "bottom" ? contentArr[content.index]
+          : contentArrSide[content.index]}
         </div>
         
         

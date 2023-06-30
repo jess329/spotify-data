@@ -45,6 +45,24 @@ html, body {
     background-color: var(--main-green);
     opacity: 0;
 }
+.current-bottom.active {
+    opacity: 1;
+}
+.current-side {
+    position: relative;
+    height: 52px;
+    width: 3px;
+    left: 20px;    
+    background-color: var(--main-green);
+    opacity: 0;
+}
+.current-side.active {
+    opacity: 1;
+}
+.link.side {
+    display: flex;
+    justify-content: space-between;
+}
 li {
     list-style: none;
 }
@@ -119,24 +137,30 @@ main {
 .user {
     position: relative;
     width: fit-content;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem; */
     left: 50%;
     transform: translateX(-50%);
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    place-content: center;
+    place-items: center;
     gap: 2rem;
 }
 .user-data h2 {
-    margin-top: 0; 
+    margin: 0;
+    margin-bottom: 2rem; 
+    color: var(--main-green);
 }
 .user-data h3 {
     margin: 0;
 }
 
+.imgholder {
+    width: fit-content;
+}
 .profile-img {
-    width: 100px;
-    height: 100px;
+    margin: auto;
+    width: 200px;
+    /* height: 200px; */
     border-radius: 50%;
 }
 
