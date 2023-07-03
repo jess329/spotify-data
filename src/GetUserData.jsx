@@ -90,7 +90,7 @@ export const getUsersRecentTracks = async (token, setTracks) => {
 
   export const getTopPlayedArtists = async (token, setArtists, timeRange) => {
     try {
-      const response = await axios.get('https://api.spotify.com/v1/me/top/artists', {
+      const response = await axios.get(`https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

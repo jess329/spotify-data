@@ -10,7 +10,7 @@ function Artists({token}) {
 
   useEffect(() => {
     getTopPlayedArtists(token, setArtists, timeRange)
-  }, [])
+  }, [timeRange])
 
   const changeArtists = (index) => {
     const timeRanges = ["short_term", "medium_term", "long_term"]
@@ -38,13 +38,15 @@ function Artists({token}) {
 
 
         {artists ? 
-          <div className="artists">
-            <div className="top-artists">
+          <div className="top-artists">
+           <div className="artists">
               {artists.map((artist, index) => {
                 return (
                   <div className="artist">
-                    <img src={artist.images[2].url} alt={artist.name} />
-                    <h2>{artist.name}</h2>
+                    <div className="imgholder">
+                      <img src={artist.images[2].url} alt={artist.name} className='artist-img'/>
+                    </div>
+                    <h3>{artist.name}</h3>
                   </div>
                 )
               })} 
