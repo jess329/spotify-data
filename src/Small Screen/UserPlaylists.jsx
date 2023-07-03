@@ -15,7 +15,7 @@ function UserPlaylists(props) {
 
   return (
     <div>
-        <h2>Your Playlists</h2>
+        <h1>Your Playlists</h1>
         <div className="playlists">
             {ownPlaylists[0] ?
             ownPlaylists.map((playlist) => {

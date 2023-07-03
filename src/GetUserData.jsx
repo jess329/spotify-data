@@ -70,7 +70,7 @@ export const getUsersMostHeardPlaylists = async (token, setMostHeardPlaylists) =
   console.log(data);
 }
 
-export const fetchLatestPlayedTracks = async (token) => {
+export const getUsersRecentTracks = async (token, setTracks) => {
     try {
       const res = await axios.get('https://api.spotify.com/v1/me/player/recently-played', {
         headers: {
@@ -79,21 +79,20 @@ export const fetchLatestPlayedTracks = async (token) => {
       });
   
       // Extract the playlists from the recently played tracks
-      console.log(res.data);
       const latestTracks = res.data.items.map(item => item.track);
-  
       console.log(latestTracks);
+      setTracks(latestTracks)
     } catch (error) {
       // Handle any errors here
       console.error(error);
     }
   };
 
-  const fetchTopPlayedArtists = async () => {
+  export const getTopPlayedArtists = async (token, setArtists, timeRange) => {
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/top/artists', {
         headers: {
-          Authorization: `Bearer ${accessToken}`
+          Authorization: `Bearer ${token}`
         }
       });
   
@@ -102,13 +101,14 @@ export const fetchLatestPlayedTracks = async (token) => {
   
       // Handle the artists here
       console.log(artists);
+      setArtists(artists)
     } catch (error) {
       // Handle any errors here
       console.error(error);
     }
   };
 
-  const fetchTopPodcasts = async (token) => {
+  export const fetchTopPodcasts = async (token) => {
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/shows', {
         headers: {
@@ -125,7 +125,7 @@ export const fetchLatestPlayedTracks = async (token) => {
     }
   };
   
-  const fetchAudiobooks = async (token) => {  
+  export const fetchAudiobooks = async (token) => {  
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/tracks', {
         headers: {

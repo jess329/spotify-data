@@ -48,13 +48,7 @@
 
 
 /* User Songs */
-.music h1 {
-    position: relative;
-    bottom: 50px;
-    text-align: center;
-}
-
-.top-tracks {
+.top-tracks, .top-artists {
     padding: 1rem;
 }
 .top-tracks h2 {
@@ -65,7 +59,7 @@
 }
 .tracks {
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     gap: 1rem;
 }
 .track {
@@ -78,15 +72,51 @@
 .songs-section .btn-container {
     display: flex;
     justify-content: flex-end;
+    box-sizing: border-box;
 }
 .btn-container h2 {
     margin: 0;
 }
-.songs-section .btn {
+
+.btn.switch.active {
+    color: var(--main-green);
+}
+.btn.switch {
     margin: 0 1rem;
     padding: 0;
     border: none;
-    color: var(--main-green);
+    color: white;
     /* border-bottom: 2px solid white; */
     background-color: transparent;
+}
+.songs-header, .artists-header {
+    display: flex;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+.btn-container.first-row > * {
+    font-size: 12px;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 5px 2rem;
+    background-color: transparent;
+    color: white;
+}
+.btn.top.active {
+    color: var(--main-green);
+    border-color: var(--main-green);
+}
+
+
+/* Artists */
+.artists-section .btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.artists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
 }
