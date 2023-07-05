@@ -58,7 +58,7 @@ function Podcasts({podcasts}) {
               {podcast.show.description.length >= 250 ? 
                 <button className="btn read" onClick={() => setFullText(!fullText)}> {!fullText ? "...Show more" : "Show less"}</button>
               : null} </p>
-              <h3><a href={podcast.show.external_urls.spotify}>Link</a></h3>
+              <h3><a href={podcast.show.external_urls.spotify} target='_blank'>Link</a></h3>
             </div>
             <div className="imgholder">
               <img src={podcast.show.images[1].url} alt={podcast.show.name} />
