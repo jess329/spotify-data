@@ -204,5 +204,6 @@
     .podcast {
         flex-direction: row;
         gap: 5rem;
+        justify-content: space-between;
     }
 }
