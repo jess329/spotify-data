@@ -14,7 +14,7 @@ function UserPlaylists(props) {
     // if(playlists) console.log(playlists);
 
   return (
-    <div>
+    <div className='playlists-section'>
         <h1>Your Playlists</h1>
         <div className="playlists">
             {ownPlaylists[0] ?

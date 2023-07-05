@@ -108,7 +108,7 @@ export const getUsersRecentTracks = async (token, setTracks) => {
     }
   };
 
-  export const fetchTopPodcasts = async (token) => {
+  export const getTopPodcasts = async (token, setPodcasts) => {
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/shows', {
         headers: {
@@ -119,25 +119,27 @@ export const getUsersRecentTracks = async (token, setTracks) => {
       const topPodcasts = response.data.items;
       // Process the fetched top podcasts as needed
       console.log(topPodcasts);
+      setPodcasts(topPodcasts)
     } catch (error) {
       // Handle error
       console.error('Error fetching top podcasts:', error);
     }
   };
   
-  export const fetchAudiobooks = async (token) => {  
+  export const getAudiobooks = async (token, setAudiobooks) => {  
     try {
-      const response = await axios.get('https://api.spotify.com/v1/me/tracks', {
+      const response = await axios.get('https://api.spotify.com/v1/me/audiobooks', {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
   
-      const savedTracks = response.data.items.filter(
-        item => item.track.type === 'audiobook'
-      );
+      // const savedTracks = response.data.items.filter(
+      //   item => item.track.type === 'audiobook'
+      // );
       // Process the fetched audiobooks as needed
-      console.log(savedTracks);
+      console.log(response.data);
+      setAudiobooks(response.data)
     } catch (error) {
       // Handle error
       console.error('Error fetching audiobooks:', error);

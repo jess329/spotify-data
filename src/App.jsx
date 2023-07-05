@@ -6,7 +6,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import Profile from './Small Screen/Profile';
 import UserPlaylists from './Small Screen/UserPlaylists';
-import NonMusic from './Small Screen/NonMusic';
+import Shows from './Small Screen/Shows';
 import Songs from './Small Screen/Songs';
 import Artists from './Small Screen/Artists';
 
@@ -30,11 +30,11 @@ function App() {
     }
     
     if(!token && hash) {
-      console.log(hash);
+      // console.log(hash);
       token = hash.substring(1).split("&")
       .find((elem) => elem.startsWith("access_token")).split(("="))[1]
       
-      console.log(token);
+      // console.log(token);
       window.localStorage.setItem("token", token)
       window.location.hash = ""
     }
@@ -51,7 +51,7 @@ function App() {
   <Songs token={token} />,
   <Artists token={token} />, 
   <UserPlaylists token={token} />, 
-  <NonMusic token={token} /> ]
+  <Shows token={token} /> ]
 
   // const contentArrSide = [ <Profile token={token} />,
   // <Songs token={token} />,
@@ -66,7 +66,7 @@ function App() {
 
       <header>
         <div className="btn-container">
-          {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${RED_URI}&scope=${SCOPES}&response_type=token`}>
+          {!token ? <a href={`https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}&response_type=token`}>
             <button className='btn'>Authorize Spotify</button>
           </a> : <button className='btn' onClick={logout}>Logout</button> } 
         </div>

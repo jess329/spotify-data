@@ -13,10 +13,6 @@ function Songs({token}) {
     : getUsersRecentTracks(token, setTracks)
   }, [timeRange, topRecent])
 
-  const getSongs = () => {
-
-  }
-
   const changeSongsCategory = (index, text) => {
     const categoryButtons = Array.from(document.getElementsByClassName("btn top"))
     categoryButtons.map((btn) => {
